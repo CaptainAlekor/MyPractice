@@ -13,13 +13,13 @@ public class DBHelper implements AutoCloseable {
 
     private Connection connection;
 
-    public DBHelper() throws Exception {
+    public DBHelper() throws NullPointerException {
         try {
             Driver driver = new Driver();
             DriverManager.registerDriver(driver);
 
             if (DB_URL == null || DB_USERNAME == null || DB_PASSWORD == null) {
-                throw new Exception("Missing one or more database connection parameters");
+                throw new NullPointerException("Missing one or more database connection parameters");
             }
 
             connection = DriverManager.getConnection(DB_URL, DB_USERNAME, DB_PASSWORD);
