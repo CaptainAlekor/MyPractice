@@ -36,4 +36,13 @@ public class Professor {
     public int getUserId() {
         return userId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Professor: {id: %d, name: %s, surname: %s, user_id: %d }",
+                id,
+                name,
+                surname,
+                userId);
+    }
 }

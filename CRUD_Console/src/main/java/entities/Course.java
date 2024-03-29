@@ -21,4 +21,9 @@ public class Course {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Course: { id: %d, name: %s }", id, name);
+    }
 }

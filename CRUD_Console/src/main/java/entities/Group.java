@@ -20,4 +20,9 @@ public class Group {
     public void setName(String name) {
         this.name = name;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Group: { id: %d, name: %s }", id, name);
+    }
 }

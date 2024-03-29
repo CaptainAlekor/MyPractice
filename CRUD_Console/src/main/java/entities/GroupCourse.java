@@ -22,4 +22,12 @@ public class GroupCourse {
     public int getCourseId() {
         return courseId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Group Course: { id: %d, group_id: %d, course_id:%d }",
+                id,
+                groupId,
+                courseId);
+    }
 }

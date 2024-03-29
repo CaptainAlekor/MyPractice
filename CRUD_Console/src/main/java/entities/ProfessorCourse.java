@@ -22,4 +22,12 @@ public class ProfessorCourse {
     public int getCourseId() {
         return courseId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Professor Course: { id: %d, professor_id: %d, course_id: %d }",
+                id,
+                professorId,
+                courseId);
+    }
 }

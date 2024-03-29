@@ -48,4 +48,14 @@ public class Student {
     public int getUserId() {
         return userId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Student: {id: %d, name: %s, surname: %s, group_id: %d, user_id: %d }",
+                id,
+                name,
+                surname,
+                groupId,
+                userId);
+    }
 }

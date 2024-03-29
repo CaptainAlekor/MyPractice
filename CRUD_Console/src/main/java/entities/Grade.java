@@ -44,4 +44,14 @@ public class Grade {
     public int getCourseId() {
         return courseId;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Grade: { id: %d, value: %d, date: %s, student_id: %d, course_id: %d }",
+                id,
+                value,
+                date.toString(),
+                studentId,
+                courseId);
+    }
 }
