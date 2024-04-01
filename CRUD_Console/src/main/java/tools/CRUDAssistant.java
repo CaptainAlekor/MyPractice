@@ -316,7 +316,7 @@ public class CRUDAssistant implements AutoCloseable {
             handleSQLException(e);
         }
     }
-    public  void updateStudentNameSurnameById(int id, String name, String surname) {
+    public void updateStudentNameSurnameById(int id, String name, String surname) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update students set name = ?, surname = ? where id = ?")) {
             statement.setString(1, name);
@@ -328,7 +328,7 @@ public class CRUDAssistant implements AutoCloseable {
             handleSQLException(e);
         }
     }
-    public  void updateStudentNameSurnameByUserId(int userId, String name, String surname) {
+    public void updateStudentNameSurnameByUserId(int userId, String name, String surname) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update students set name = ?, surname = ? where user_id = ?")) {
             statement.setString(1, name);
@@ -340,7 +340,7 @@ public class CRUDAssistant implements AutoCloseable {
             handleSQLException(e);
         }
     }
-    public void updateStudentGroupById(int id, int groupId) {
+    public void updateStudentGroupIdById(int id, int groupId) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update students set group_id = ? where id = ?")) {
             statement.setInt(1, groupId);
@@ -351,7 +351,7 @@ public class CRUDAssistant implements AutoCloseable {
             handleSQLException(e);
         }
     }
-    public void updateStudentGroupByUserId(int userId, int groupId) {
+    public void updateStudentGroupIdByUserId(int userId, int groupId) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update students set group_id = ? where user_id = ?")) {
             statement.setInt(1, groupId);
@@ -487,7 +487,7 @@ public class CRUDAssistant implements AutoCloseable {
             return professor;
         }
     }
-    public  void updateProfessorNameSurnameById(int id, String name, String surname) {
+    public void updateProfessorNameSurnameById(int id, String name, String surname) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update professors set name = ?, surname = ? where id = ?")) {
             statement.setString(1, name);
@@ -499,7 +499,7 @@ public class CRUDAssistant implements AutoCloseable {
             handleSQLException(e);
         }
     }
-    public  void updateProfessorNameSurnameByUserId(int userId, String name, String surname) {
+    public void updateProfessorNameSurnameByUserId(int userId, String name, String surname) {
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "update professors set name = ?, surname = ? where user_id = ?")) {
             statement.setString(1, name);
@@ -911,7 +911,7 @@ public class CRUDAssistant implements AutoCloseable {
             return groupCourses;
         }
     }
-    public List<GroupCourse> readAllGroupCoursesByGroupId(int groupId) {
+    public List<GroupCourse> readGroupCoursesByGroupId(int groupId) {
         ArrayList<GroupCourse> groupCourses = new ArrayList<>();
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "select id, group_id, course_id from group_courses where group_id = ?;")) {
@@ -933,7 +933,7 @@ public class CRUDAssistant implements AutoCloseable {
             return groupCourses;
         }
     }
-    public List<GroupCourse> readAllGroupCoursesByCourseId(int courseId) {
+    public List<GroupCourse> readGroupCoursesByCourseId(int courseId) {
         ArrayList<GroupCourse> groupCourses = new ArrayList<>();
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "select id, group_id, course_id from group_courses where course_id = ?;")) {
@@ -998,7 +998,7 @@ public class CRUDAssistant implements AutoCloseable {
             return professorCourses;
         }
     }
-    public List<ProfessorCourse> readAllProfessorCoursesByProfessorId(int professorId) {
+    public List<ProfessorCourse> readProfessorCoursesByProfessorId(int professorId) {
         ArrayList<ProfessorCourse> professorCourses = new ArrayList<>();
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "select id, professor_id, course_id from professor_courses where professor_id = ?;")) {
@@ -1020,7 +1020,7 @@ public class CRUDAssistant implements AutoCloseable {
             return professorCourses;
         }
     }
-    public List<ProfessorCourse> readAllProfessorCoursesByCourseId(int courseId) {
+    public List<ProfessorCourse> readProfessorCoursesByCourseId(int courseId) {
         ArrayList<ProfessorCourse> professorCourses = new ArrayList<>();
         try (PreparedStatement statement = dbHelper.getConnection().prepareStatement(
                 "select id, professor_id, course_id from professor_courses where course_id = ?;")) {
