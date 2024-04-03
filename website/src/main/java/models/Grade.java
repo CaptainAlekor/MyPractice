@@ -17,7 +17,7 @@ public class Grade {
     private int id;
     private int value;
     @Basic
-    private java.sql.Date date;
+    private Date date;
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private Student student;
@@ -28,21 +28,21 @@ public class Grade {
     public Grade() {}
     public Grade(int value) {
         this.value = value;
-        this.date = new java.sql.Date(System.currentTimeMillis());
+        this.date = new Date(System.currentTimeMillis());
     }
     public Grade(int value, String date) {
         this.value = value;
         try {
             this.date = parseDate(date);
         } catch (ParseException e) {
-            this.date = new java.sql.Date(System.currentTimeMillis());
+            this.date = new Date(System.currentTimeMillis());
             System.out.println("Date parse exception. Current date has been set instead.");
         }
 
     }
     public Grade(int value, Student student, Course course) {
         this.value = value;
-        this.date = new java.sql.Date(System.currentTimeMillis());
+        this.date = new Date(System.currentTimeMillis());
         this.student = student;
         this.course = course;
     }
@@ -51,7 +51,7 @@ public class Grade {
         try {
             this.date = parseDate(date);
         } catch (ParseException e) {
-            this.date = new java.sql.Date(System.currentTimeMillis());
+            this.date = new Date(System.currentTimeMillis());
             System.out.println("Date parse exception. Current date has been set instead.");
         }
         this.student = student;
@@ -98,15 +98,15 @@ public class Grade {
                 '}';
     }
 
-    public static java.sql.Date parseDate(String date) throws ParseException {
+    public static Date parseDate(String date) throws ParseException {
         String formatStr = "dd.MM.yyyy";
         SimpleDateFormat format = new SimpleDateFormat(formatStr);
         java.util.Date utilDate = format.parse(date);
-        return new java.sql.Date(utilDate.getTime());
+        return new Date(utilDate.getTime());
     }
-    public static java.sql.Date parseDate(String date, String formatStr) throws ParseException {
+    public static Date parseDate(String date, String formatStr) throws ParseException {
         SimpleDateFormat format = new SimpleDateFormat(formatStr);
         java.util.Date utilDate = format.parse(date);
-        return new java.sql.Date(utilDate.getTime());
+        return new Date(utilDate.getTime());
     }
 }
