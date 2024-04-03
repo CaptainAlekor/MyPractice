@@ -14,19 +14,19 @@ create table students (
     name varchar(255) not null,
     surname varchar(255) not null,
     group_id integer not null references groups (id),
-    user_id integer not null references users (id) on delete cascade
+    user_id integer not null unique references users (id) on delete cascade
 );
 
 create table professors (
     id serial primary key,
     name varchar(255) not null,
     surname varchar(255) not null,
-    user_id integer not null references users (id) on delete cascade
+    user_id integer not null unique references users (id) on delete cascade
 );
 
 create table courses (
     id serial primary key,
-    name varchar(255) not null
+    name varchar(255) not null unique
 );
 
 create table group_courses (
