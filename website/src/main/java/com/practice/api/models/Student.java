@@ -1,4 +1,4 @@
-package models;
+package com;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "students")
 public class Student extends Person {
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_id")
     private Group group;
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL, orphanRemoval = true)
@@ -32,16 +32,5 @@ public class Student extends Person {
     }
     public List<Grade> getGrades() {
         return grades;
-    }
-
-    @Override
-    public String toString() {
-        return "Student{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", user=" + user + '\'' +
-                ", group=" + group +
-                "} " + super.toString();
     }
 }

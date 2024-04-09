@@ -1,4 +1,4 @@
-package models;
+package com;
 
 import jakarta.persistence.*;
 
@@ -18,10 +18,10 @@ public class Grade {
     private int value;
     @Basic
     private Date date;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "student_id")
     private Student student;
-    @ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
 
@@ -86,17 +86,6 @@ public class Grade {
         return id;
     }
 
-
-    @Override
-    public String toString() {
-        return "Grade{" +
-                "id=" + id +
-                ", value=" + value +
-                ", sqlDate=" + date +
-                ", student=" + student +
-                ", course=" + course +
-                '}';
-    }
 
     public static Date parseDate(String date) throws ParseException {
         String formatStr = "dd.MM.yyyy";

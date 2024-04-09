@@ -1,4 +1,4 @@
-package models;
+package com;
 
 import jakarta.persistence.*;
 
@@ -18,7 +18,7 @@ public class Group {
     private String name;
     @OneToMany(mappedBy = "group", cascade = CascadeType.ALL)
     private List<Student> students;
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "group_courses",
             joinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"),
@@ -53,7 +53,6 @@ public class Group {
     public List<Course> getCourses() {
         return courses;
     }
-
 
     @Override
     public String toString() {

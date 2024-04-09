@@ -1,4 +1,4 @@
-package models;
+package com;
 
 import jakarta.persistence.*;
 
@@ -14,7 +14,7 @@ public abstract class Person {
     protected int id;
     protected String name;
     protected String surname;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", unique = true)
     protected User user;
 
@@ -49,15 +49,5 @@ public abstract class Person {
     }
     public int getId() {
         return id;
-    }
-
-    @Override
-    public String toString() {
-        return "Person{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", user=" + user +
-                '}';
     }
 }

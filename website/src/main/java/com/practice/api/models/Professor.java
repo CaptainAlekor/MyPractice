@@ -1,4 +1,4 @@
-package models;
+package com;
 
 import jakarta.persistence.*;
 
@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 @Table(name = "professors")
 public class Professor extends Person {
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "professor_courses",
             joinColumns = @JoinColumn(name = "professor_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"),
@@ -27,15 +27,5 @@ public class Professor extends Person {
 
     public List<Course> getCourses() {
         return courses;
-    }
-
-    @Override
-    public String toString() {
-        return "Professor{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", user=" + user +
-                "} " + super.toString();
     }
 }
