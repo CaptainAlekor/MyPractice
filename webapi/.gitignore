@@ -34,4 +34,4 @@ build/
 
 ### My own ignores ###
 .idea
-src/main/resources/hibernate.cfg.xml
+src/main/resources
