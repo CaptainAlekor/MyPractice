@@ -42,10 +42,10 @@ export default function LoginForm() {
                 localStorage.setItem("user", JSON.stringify(user));
 
                 if (user.role === 'ROLE_STUDENT') {
-                    navigate("/rating", { replace: true });
+                    navigate("/rating", { replace: false });
                 }
                 if (user.role === 'ROLE_PROFESSOR') {
-
+                    navigate("/professor-group-courses", { replace: false });
                 }
             });
     }

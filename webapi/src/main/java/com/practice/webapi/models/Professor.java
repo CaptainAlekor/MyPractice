@@ -15,7 +15,7 @@ import java.util.List;
 @Entity
 @Table
 public class Professor extends Person {
-    @JsonIgnore
+    //@JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "professor_group_course",
             joinColumns = @JoinColumn(name = "professor_id", referencedColumnName = "id"),

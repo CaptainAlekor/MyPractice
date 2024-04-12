@@ -60,3 +60,22 @@ width: 50%;
   display: flex;
   justify-content: center;
 }
+
+.group-courses-list-container {
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-courses-list-item {
+  border: 1px red solid;
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.course-group {
+  font-size: 1.8em;
+}
