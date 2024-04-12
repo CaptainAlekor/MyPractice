@@ -1,8 +1,11 @@
 package com.practice.webapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+
+import java.util.List;
 
 @Getter
 @NoArgsConstructor
@@ -21,6 +24,14 @@ public class GroupCourse {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "course_id")
     private Course course;
+    ///
+    @JsonIgnore
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "professor_group_course",
+            joinColumns = @JoinColumn(name = "group_course_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(name = "professor_id", referencedColumnName = "id"),
+            uniqueConstraints = {@UniqueConstraint(columnNames = {"professor_id", "group_course_id"})})
+    private List<Professor> professors;
 
     public GroupCourse(Group group, Course course) {
         this.group = group;

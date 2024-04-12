@@ -1,6 +1,7 @@
 package com.practice.webapi.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -29,9 +30,10 @@ public class Grade {
     private Date date;
     @Setter
     @JsonManagedReference
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "student_id")
     private Student student;
+    @JsonIgnore
     @Setter
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "group_course_id")

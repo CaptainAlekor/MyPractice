@@ -1,6 +1,7 @@
 package com.practice.webapi.models;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -23,16 +24,15 @@ public class Course {
     @Setter
     @Column(unique = true)
     private String name;
-
     @JsonBackReference
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "group_course",
             joinColumns = @JoinColumn(name = "course_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "group_id", referencedColumnName = "id"))
-    private List<GroupCourse> groupCourses;
+    private List<Group> groups;
 
     public Course(String name) {
         this.name = name;
-        this.groupCourses = new ArrayList<>();
+        this.groups = new ArrayList<>();
     }
 }

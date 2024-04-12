@@ -24,18 +24,22 @@ public class User {
     @Setter
     private String password;
     @Setter
+    private String role;
+    @Setter
     @JsonManagedReference
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Person person;
 
-    public User(String email, String password) {
+    public User(String email, String password, String role) {
         this.email = email;
         this.password = password;
+        this.role = role;
     }
-    public User(String email, String password, Person person) {
+    public User(String email, String password, String role, Person person) {
         this.email = email;
         this.password = password;
         this.person = person;
+        this.role = role;
         person.setUser(this);
     }
 }

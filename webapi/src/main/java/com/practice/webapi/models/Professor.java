@@ -1,5 +1,6 @@
 package com.practice.webapi.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -14,7 +15,7 @@ import java.util.List;
 @Entity
 @Table
 public class Professor extends Person {
-    @JsonManagedReference
+    @JsonIgnore
     @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JoinTable(name = "professor_group_course",
             joinColumns = @JoinColumn(name = "professor_id", referencedColumnName = "id"),

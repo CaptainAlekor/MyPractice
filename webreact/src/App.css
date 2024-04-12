@@ -1,0 +1,62 @@
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+width: 50%;
+}
+
+.table-row {
+  border: 1px black solid;
+  margin-bottom: 20px;
+}
+
+.grades-container {
+  border: 1px red solid;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grades-item {
+  border: 1px blue dashed;
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+}
+
+.course-name {
+  font-size: 1.8em;
+}
+
+.average-grade {
+  font-size: 1.4em;
+}
+
+.grade-details {
+  position: absolute;
+  top: calc(var(--size) * -1);
+  left: calc(var(--size) / -2);
+  width: calc(var(--size) * 2);
+  height: var(--size);
+  background-color: palegreen;
+
+  text-align: center;
+  vertical-align: middle;
+  line-height: var(--size);
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 250px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+}
