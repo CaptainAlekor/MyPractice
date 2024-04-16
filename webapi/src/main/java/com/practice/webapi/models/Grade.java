@@ -83,7 +83,7 @@ public class Grade {
     }
 
     public static Date parseDate(String date) throws ParseException {
-        String formatStr = "dd.MM.yyyy";
+        String formatStr = "yyyy-MM-dd";
         return parseDate(date, formatStr);
     }
     public static Date parseDate(String date, String formatStr) throws ParseException {

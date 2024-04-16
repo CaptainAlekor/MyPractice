@@ -1,21 +1,12 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
+import Header from "./header.component";
 
 export default function GradesTable() {
     const user = JSON.parse(localStorage.getItem("user"));
 
     const [grades, setGrades] = useState(new Map());
     const [isLoaded, setIsLoaded] = useState(false);
-
-    // useEffect(() => {
-    //     const gradesMap = new Map()
-    //     user.person.group.courses.forEach(async (element) => {
-    //         setGrades(grades.set(element.name, await fetchGrades(user.person.id, element.id)))
-    //     })
-    //     setGrades(gradesMap)
-    //     console.log(grades)
-    //     setIsLoaded(true)
-    // }, [])
 
     useEffect(() => {
         setIsLoaded(false)
@@ -33,6 +24,7 @@ export default function GradesTable() {
 
     return (
         <>
+            <Header/>
             <div className="table-container">
                 <h2>{user.person.name + " " + user.person.surname}</h2>
             </div>

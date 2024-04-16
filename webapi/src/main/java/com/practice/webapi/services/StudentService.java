@@ -6,6 +6,8 @@ import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @AllArgsConstructor
 @Transactional(rollbackOn = Exception.class)
@@ -14,5 +16,9 @@ public class StudentService {
 
     public Student getStudentById(int id) {
         return studentRepository.findById(id).orElse(null);
+    }
+
+    public List<Student> getStudentsByGroupId(int groupId) {
+        return studentRepository.findStudentsByGroup_Id(groupId);
     }
 }
