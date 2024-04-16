@@ -9,22 +9,24 @@ export default function GradesTable() {
     const [isLoaded, setIsLoaded] = useState(false);
 
     useEffect(() => {
-        setIsLoaded(false)
-        const gradesMap = new Map()
+        setIsLoaded(false);
+        const gradesMap = new Map();
         user.person.group.courses.forEach(async (element, index) => {
-            await fetchGrades(user.person.id, element.id).then((resp) => {
-                gradesMap.set(element.name, resp)
-            }).catch((error) => {
-                console.log(error)
-            })
-            setGrades(gradesMap)
-            setIsLoaded(true)
-        })
-    }, [])
+            await fetchGrades(user.person.id, element.id)
+                .then((resp) => {
+                    gradesMap.set(element.name, resp);
+                })
+                .catch((error) => {
+                    console.log(error);
+                });
+            setGrades(gradesMap);
+            setIsLoaded(true);
+        });
+    }, []);
 
     return (
         <>
-            <Header/>
+            <Header />
             <div className="table-container">
                 <h2>{user.person.name + " " + user.person.surname}</h2>
             </div>

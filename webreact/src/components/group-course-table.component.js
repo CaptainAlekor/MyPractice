@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Header from "./header.component";
 
 export default function GroupCourseTable() {
     const { id } = useParams();
@@ -39,7 +40,12 @@ export default function GroupCourseTable() {
         return <div>Loading...</div>;
     }
 
-    return <GroupTableRows students={students} />;
+    return (
+        <>
+            <Header />
+            <GroupTableRows students={students} />
+        </>
+    );
 }
 
 function GroupTableRows({ students }) {
@@ -109,7 +115,9 @@ function GradeMenu({ grade, setShowMenu }) {
             <div className="menu-close" onClick={() => setShowMenu(false)}>
                 x
             </div>
-            <div className="grade-delete" onClick={deleteGrade}>Delete grade</div>
+            <div className="grade-delete" onClick={deleteGrade}>
+                Delete grade
+            </div>
             <div
                 className="grade-update"
                 onClick={async () => {
