@@ -21,4 +21,8 @@ public class StudentService {
     public List<Student> getStudentsByGroupId(int groupId) {
         return studentRepository.findStudentsByGroup_Id(groupId);
     }
+
+    public List<Student> getAllStudents() {
+        return studentRepository.findAll();
+    }
 }

@@ -23,4 +23,9 @@ public class StudentController {
     public ResponseEntity<List<Student>> getStudentsByGroupId(@RequestParam int groupId) {
         return ResponseEntity.ok(studentService.getStudentsByGroupId(groupId));
     }
+
+    @GetMapping
+    public ResponseEntity<List<Student>> getStudents() {
+        return ResponseEntity.ok(studentService.getAllStudents());
+    }
 }
