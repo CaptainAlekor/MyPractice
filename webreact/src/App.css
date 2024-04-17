@@ -1,0 +1,180 @@
+body {
+  padding: 0px;
+  margin: 0px;
+}
+
+.table-container {
+  display: flex;
+  justify-content: center;
+}
+
+.table {
+width: 50%;
+}
+
+.table-row {
+  border: 1px black solid;
+  margin-bottom: 20px;
+}
+
+.grades-container {
+  border: 1px red solid;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grades-item {
+  border: 1px blue dashed;
+  --size: 40px;
+  width: var(--size);
+  height: var(--size);
+  line-height: var(--size);
+  text-align: center;
+  vertical-align: middle;
+  position: relative;
+  cursor: pointer;
+}
+
+.course-name {
+  font-size: 1.8em;
+}
+
+.average-grade {
+  font-size: 1.4em;
+}
+
+.grade-details {
+  position: absolute;
+  top: calc(var(--size) * -1);
+  left: calc(var(--size) / -2);
+  width: calc(var(--size) * 2);
+  height: var(--size);
+  background-color: palegreen;
+
+  text-align: center;
+  vertical-align: middle;
+  line-height: var(--size);
+}
+
+.login-form-container {
+  display: flex;
+  justify-content: center;
+  padding-top: 250px;
+}
+
+.table-header {
+  display: flex;
+  justify-content: center;
+}
+
+.group-courses-list-container {
+  border: 1px black solid;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.group-courses-list-item {
+  border: 1px red solid;
+  display: flex;
+  width: 40%;
+  justify-content: space-between;
+}
+
+.course-group {
+  font-size: 1.8em;
+}
+
+.group-table-row {
+  border: 1px black solid;
+  display: flex;
+}
+
+.group-table-row-student {
+  border: 1px red solid;
+  font-size: 1.8em;
+  width: 300px;
+}
+
+.group-table-row-grades {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.grade-menu {
+  position: absolute;
+  width: 500px;
+  height: 250px;
+  background-color: aqua;
+  top: 100px;
+  left: 500px;
+}
+
+.grade-delete {
+  position: absolute;
+  background-color: rgb(248, 72, 72);
+  top: 170px;
+  left: 76px;
+  text-align: center;
+  width: 139px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.grade-update {
+  position: absolute;
+  background-color: green;
+  top: 170px;
+  left: 286px;
+  text-align: center;
+  width: 139px;
+  height: 50px;
+  cursor: pointer;
+}
+
+.menu-close {
+  position: absolute;
+  font-size: 2em;
+  cursor: pointer;
+  color: red;
+  top: 0px;
+  right: 10px;
+}
+
+.grade-menu-input {
+  font-size: 1.5em;
+  margin-top: 20px;
+  margin-left: 15px;
+}
+
+.grade-menu-input > input {
+  font-size: inherit;
+}
+
+.grade-menu-submit > input {
+  position: absolute;
+  bottom: 20px;
+  left: 200px;
+  padding: 20px;
+  background-color: #46d546;
+  border: 0px;
+  cursor: pointer;
+}
+
+.header {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  height: 50px;
+  background-color: rgb(159, 158, 158);
+  justify-content: end;
+}
+
+.logout-button {
+  padding: 5px;
+  background-color: rgb(120, 117, 117);
+  align-self: center;
+  margin: 20px;
+  cursor: pointer;
+}
