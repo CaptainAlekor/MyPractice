@@ -20,4 +20,8 @@ public class GroupService {
     public Group getGroupByStudentId(int studentId) {
         return groupRepository.getGroupByStudentId(studentId).orElse(null);
     }
+
+    public Group findGroupByName(String name) {
+        return groupRepository.findByName(name).orElse(null);
+    }
 }
