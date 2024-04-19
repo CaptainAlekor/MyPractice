@@ -29,6 +29,11 @@ public class ProfessorController {
         Professor professor = new Professor(data.getName(), data.getSurname());
         return ResponseEntity.ok(professorService.createProfessor(professor, user));
     }
+
+    @PutMapping("/setGroupCourse")
+    public ResponseEntity<String> setProfessorGroupCourse(@RequestBody SetGroupCourseData data) {
+        return ResponseEntity.ok(professorService.setProfessorGroupCourse(data.getProfessorId(), data.getGroupCourseId()));
+    }
 }
 
 @Getter
@@ -39,4 +44,11 @@ class CreateProfessorData {
     private String password;
     private String name;
     private String surname;
+}
+@Getter
+@Setter
+@AllArgsConstructor
+class SetGroupCourseData {
+    private int professorId;
+    private int groupCourseId;
 }

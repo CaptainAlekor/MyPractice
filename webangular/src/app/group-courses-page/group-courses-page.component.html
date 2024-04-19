@@ -1,0 +1,41 @@
+<div class="header">
+    <div (click)="openDialog()" class="button-create">+</div>
+</div>
+<div class="students-table-container">
+    <ng-container *ngIf="isDataLoaded">
+        <table mat-table [dataSource]="groupCoursesList">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef> ID </th>
+                <td mat-cell *matCellDef="let groupCourse"> {{groupCourse.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="group">
+                <th mat-header-cell *matHeaderCellDef> Group </th>
+                <td mat-cell *matCellDef="let groupCourse"> {{groupCourse.group}} </td>
+            </ng-container>
+            <ng-container matColumnDef="course">
+                <th mat-header-cell *matHeaderCellDef> Course </th>
+                <td mat-cell *matCellDef="let groupCourse"> {{groupCourse.course}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+        </table>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="showCreateDialog">
+    <div class="student-create-dialog">
+        <form>
+            <div>
+                <label>Group name: </label>
+                <input type="text" name="group" autocomplete="off" required [(ngModel)]="createGroupCourseForm.groupName">
+            </div>
+            <div>
+                <label>Course id: </label>
+                <input type="text" name="course" autocomplete="off" required [(ngModel)]="createGroupCourseForm.courseId">
+            </div>
+            <button (click)="checkForm()">Create group-course</button>
+        </form>
+        <div (click)="closeDialog()" class="button-close">x</div>
+    </div>
+</ng-container>

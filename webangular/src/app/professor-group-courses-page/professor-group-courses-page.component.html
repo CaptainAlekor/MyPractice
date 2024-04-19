@@ -1,0 +1,45 @@
+<div class="header">
+    <div (click)="openDialog()" class="button-create">+</div>
+</div>
+<div class="students-table-container">
+    <ng-container *ngIf="isDataLoaded">
+        <table mat-table [dataSource]="professorGroupCoursesList">
+            <ng-container matColumnDef="professorId">
+                <th mat-header-cell *matHeaderCellDef> Professor ID </th>
+                <td mat-cell *matCellDef="let professorGroupCourse"> {{professorGroupCourse.professorId}} </td>
+            </ng-container>
+            <ng-container matColumnDef="professor">
+                <th mat-header-cell *matHeaderCellDef> Professor </th>
+                <td mat-cell *matCellDef="let professorGroupCourse"> {{professorGroupCourse.professor}} </td>
+            </ng-container>
+            <ng-container matColumnDef="group">
+                <th mat-header-cell *matHeaderCellDef> Course </th>
+                <td mat-cell *matCellDef="let professorGroupCourse"> {{professorGroupCourse.group}} </td>
+            </ng-container>
+            <ng-container matColumnDef="course">
+                <th mat-header-cell *matHeaderCellDef> Course </th>
+                <td mat-cell *matCellDef="let professorGroupCourse"> {{professorGroupCourse.course}} </td>
+            </ng-container>
+            <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+            <tr mat-row *matRowDef="let myRowData; columns: columnsToDisplay"></tr>
+
+        </table>
+    </ng-container>
+</div>
+
+<ng-container *ngIf="showCreateDialog">
+    <div class="student-create-dialog">
+        <form>
+            <div>
+                <label>Professor ID: </label>
+                <input type="text" name="professorId" autocomplete="off" required [(ngModel)]="createProfessorGroupCourseForm.professorId">
+            </div>
+            <div>
+                <label>Group-course ID: </label>
+                <input type="text" name="groupCourseId" autocomplete="off" required [(ngModel)]="createProfessorGroupCourseForm.groupCourseId">
+            </div>
+            <button (click)="checkForm()">Create professor group-course</button>
+        </form>
+        <div (click)="closeDialog()" class="button-close">x</div>
+    </div>
+</ng-container>
