@@ -1,0 +1,9 @@
+<input type="text" [(ngModel)]="bebra">
+<p>test-comp works! {{bebra}}</p>
+<!-- <p *ngFor="let num of arr">{{num}}</p> -->
+<ng-container *ngFor="let num of arr">
+    <p>{{num}}</p>
+</ng-container>
+<ng-container *ngFor="let user of userList">
+    <p>{{user.name}}</p>
+</ng-container>

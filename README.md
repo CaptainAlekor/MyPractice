@@ -12,4 +12,4 @@
 | Реализация консольного приложения | 30ч | 27ч |
 | Backend: SpringBoot = Hibernate | 30ч | 40ч |
 | Frontend: React | 18ч | 24ч |
-| Frontend: Angular | 18ч | ? |
+| Frontend: Angular | 18ч | 19ч |
